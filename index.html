@@ -14,6 +14,7 @@
   <script src="src/js/data.js"></script>
   <script src="src/js/data/2023-12-15.js"></script>
 
+
   <script src="src/js/html2canvas.min.js"></script>
   <script src="src/js/lz-string.min.js"></script>
   <script src="src/js/seedrandom.min.js"></script>
@@ -22,7 +23,6 @@
 
 <body>
 <div class="container">
-
     <div class="progress">
         <span class="progressbattle"></span>
         <div class="progressbar">
@@ -52,6 +52,13 @@
         <div class="right sort text"><p></p></div>
     </div>
 
+    <br>
+
+    <div class="dark-mode-toggle">
+        <input type="checkbox" id="darkModeToggle">
+        <label for="darkModeToggle">Dark Mode</label>
+    </div>
+
     <div class="options"></div>
     <div class="image selector">Display Images on Result: </div>
     <div class="time taken"></div>
@@ -64,7 +71,8 @@
 
         <p>Sorter for Aether Gazer characters. </p>
         <p>Pick your sources, and hit the Start button.</p>
-        <p>Click on the character you like better from the two, or tie them if you like them equally or don't know them.</p>
+        <p>Click on the character you like better from the two, <br>
+        or tie them if you like them equally or don't know them.</p>
 
         <br><br>
 
@@ -89,6 +97,7 @@
         <p>15 Nov 2023 - Added Modifier Characters based on Global Server.</p>
     </div>
 </div>
+<script src="src/js/darkmode.js"></script>
 </body>
 
 </html>
