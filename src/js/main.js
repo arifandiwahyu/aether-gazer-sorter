@@ -106,7 +106,7 @@ function init() {
   document.querySelector('.image.selector').insertAdjacentElement('beforeend', document.createElement('select'));
 
   /** Initialize image quantity selector for results. */
-  for (let i = 0; i <= 20; i++) {
+  for (let i = 0; i <= 25; i++) {
     const select = document.createElement('option');
     select.value = i;
     select.text = i;
@@ -466,9 +466,9 @@ function progressBar(indicator, percentage) {
 /**
  * Shows the result of the sorter.
  * 
- * @param {number} [imageNum=3] Number of images to display. Defaults to 3.
+ * @param {number} [imageNum=10] Number of images to display. Defaults to 3.
  */
-function result(imageNum = 3) {
+function result(imageNum = 10) {
   document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
   document.querySelector('.image.selector').style.display = 'block';
   document.querySelector('.time.taken').style.display = 'block';
@@ -591,6 +591,16 @@ function generateImage() {
   const timeFinished = timestamp + timeTaken;
   const tzoffset = (new Date()).getTimezoneOffset() * 60000;
   const filename = 'sort-' + (new Date(timeFinished - tzoffset)).toISOString().slice(0, -5).replace('T', '(') + ').png';
+
+  const resultsContainer = document.querySelector('.results');
+  const isDarkMode = document.body.classList.contains('dark-mode');
+
+  // Adjust background color based on dark mode status
+  if (isDarkMode) {
+    resultsContainer.style.backgroundColor = '#333'; // Dark mode background color
+  } else {
+    resultsContainer.style.backgroundColor = '#fff'; // Light mode background color
+  }
 
   html2canvas(document.querySelector('.results')).then(canvas => {
     const dataURL = canvas.toDataURL();
